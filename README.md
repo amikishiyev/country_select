@@ -45,6 +45,10 @@ Supplying only certain countries:
 country_select("user", "country", only: ["GB", "FR", "DE"])
 ```
 
+```ruby
+country_select("user", "country", except: ["AM"])
+```
+
 Supplying additional html options:
 
 ```ruby

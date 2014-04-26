@@ -46,6 +46,10 @@ module CountrySelect
     def all_country_codes
       codes = ISO3166::Country.all.map(&:last)
 
+      if @options[:except]
+        codes = codes - @options[:except]
+      end
+
       if only_country_codes.present?
         codes & only_country_codes
       else

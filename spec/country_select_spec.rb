@@ -77,6 +77,12 @@ describe "CountrySelect" do
     expect(t).to include(tag)
   end
 
+  it "selects all countries except given countries" do
+    tag = options_for_select([["Armenia", "AM"]])
+    t = builder.country_select(:country_code, except: ['AM'])
+    expect(t).to_not include(tag)
+  end
+
   it "selects only the first matching option" do
     tag = options_for_select([["United States of America", "US"],["Uruguay", "UY"]], "US")
     walrus.country_code = 'US'
